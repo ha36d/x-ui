@@ -35,7 +35,7 @@ func runWebServer() {
 		log.Fatal("unknown log level:", config.GetLogLevel())
 	}
 
-	err := database.InitDB(config.GetDBPath())
+	err := database.InitDB(config.GetDBURI())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -77,7 +77,7 @@ func runWebServer() {
 }
 
 func resetSetting() {
-	err := database.InitDB(config.GetDBPath())
+	err := database.InitDB(config.GetDBURI())
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -137,7 +137,7 @@ func updateTgbotEnableSts(status bool) {
 }
 
 func updateTgbotSetting(tgBotToken string, tgBotChatid int, tgBotRuntime string) {
-	err := database.InitDB(config.GetDBPath())
+	err := database.InitDB(config.GetDBURI())
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -177,7 +177,7 @@ func updateTgbotSetting(tgBotToken string, tgBotChatid int, tgBotRuntime string)
 }
 
 func updateSetting(port int, username string, password string) {
-	err := database.InitDB(config.GetDBPath())
+	err := database.InitDB(config.GetDBURI())
 	if err != nil {
 		fmt.Println(err)
 		return

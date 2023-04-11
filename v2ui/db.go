@@ -1,7 +1,7 @@
 package v2ui
 
 import (
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
@@ -13,7 +13,7 @@ func initDB(dbPath string) error {
 		Logger: logger.Discard,
 	}
 	var err error
-	v2db, err = gorm.Open(sqlite.Open(dbPath), c)
+	v2db, err = gorm.Open(mysql.Open(dbPath), c)
 	if err != nil {
 		return err
 	}

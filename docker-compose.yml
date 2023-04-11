@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  xui:
+    image: x-ui
+    build: .
+    container_name: x-ui
+    volumes:
+      - $PWD/db/:/etc/x-ui/
+      - $PWD/cert/:/root/cert/
+    restart: unless-stopped
+    ports:
+      - "2053:54321"
+      - "443:443"
+      - "8443:8443"

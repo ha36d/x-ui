@@ -45,6 +45,30 @@ func IsDebug() bool {
 	return os.Getenv("XUI_DEBUG") == "true"
 }
 
+func GetDBUsername() string {
+	return os.Getenv("XUI_MYSQL_USERNAME")
+}
+
+func GetDBPassword() string {
+	return os.Getenv("XUI_MYSQL_PASSWORD")
+}
+
+func GetDBHost() string {
+	return os.Getenv("XUI_MYSQL_HOST")
+}
+
+func GetDBPort() string {
+	return os.Getenv("XUI_MYSQL_PORT")
+}
+
+func GetDB() string {
+	return os.Getenv("XUI_MYSQL_DB")
+}
+
+func GetDBURI() string {
+	return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", GetDBUsername(), GetDBPassword(), GetDBHost(), GetDBPort(), GetDB())
+}
+
 func GetDBPath() string {
 	return fmt.Sprintf("/etc/%s/%s.db", GetName(), GetName())
 }
